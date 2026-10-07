@@ -24,3 +24,44 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes caution-slide {
+  to {
+    background-position: 40px 0;
+  }
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes progress-indeterminate {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}
+
+.caution-tape {
+  animation: caution-slide 1.5s linear infinite;
+}
+
+.cursor-blink {
+  animation: cursor-blink 1s steps(1) infinite;
+}
+
+.progress-indeterminate {
+  animation: progress-indeterminate 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caution-tape,
+  .cursor-blink,
+  .progress-indeterminate {
+    animation: none;
+  }
+}
