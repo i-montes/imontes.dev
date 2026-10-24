@@ -5,6 +5,29 @@ const log = [
   { status: "wait", text: "escribiendo contenido" },
 ];
 
+const redes = [
+  {
+    nombre: "YouTube",
+    usuario: "@imontesdev",
+    href: "https://www.youtube.com/@imontesdev",
+    icono: (
+      <svg viewBox="0 0 24 24" aria-hidden className="size-4 fill-current">
+        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z" />
+      </svg>
+    ),
+  },
+  {
+    nombre: "X",
+    usuario: "@iandres_montes",
+    href: "https://x.com/iandres_montes",
+    icono: (
+      <svg viewBox="0 0 24 24" aria-hidden className="size-4 fill-current">
+        <path d="M18.9 1.2h3.7l-8 9.2 9.4 12.4h-7.4l-5.8-7.6-6.6 7.6H.5l8.6-9.8L0 1.2h7.6l5.2 6.9 6.1-6.9Zm-1.3 19.4h2L6.5 3.2H4.3l13.3 17.4Z" />
+      </svg>
+    ),
+  },
+];
+
 const statusLabel = {
   ok: { label: "listo", className: "text-emerald-400" },
   run: { label: "en curso", className: "text-amber-300 animate-pulse" },
@@ -38,6 +61,20 @@ export default function Home() {
             Estoy levantando este sitio desde los cimientos. Pronto habrá
             proyectos, notas y otras cosas por aquí.
           </p>
+          <nav aria-label="Redes" className="flex flex-wrap gap-3">
+            {redes.map((r) => (
+              <a
+                key={r.nombre}
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-sm text-zinc-300 transition-colors hover:border-amber-300/60 hover:text-amber-300"
+              >
+                {r.icono}
+                <span>{r.usuario}</span>
+              </a>
+            ))}
+          </nav>
         </header>
 
         <section
